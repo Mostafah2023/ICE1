@@ -21,10 +21,13 @@ public class CardTrick {
             Card card = new Card();
             //Random generation 0-12 (13 values)
             card.setValue((int)(Math.random()*13));
+            System.out.println(card.getValue());
             //Random generation 0-3 (4 values)
             card.setSuit(Card.SUITS[((int)(Math.random()*3)+1)]);
+            System.out.println(card.getSuit());
             //assign object to index i in hand array
             hand[i] = card;
+            
         }
 
         // insert code to ask the user for Card value and suit, create their card
@@ -36,13 +39,13 @@ public class CardTrick {
         // Then loop through the cards in the array to see if there's a match.
         Card userCard = new Card();
         System.out.println("Enter a card value (1-13): ");
-        userCard.setValue(hand[6].getValue());
-        //System.out.println("Enter a Suit: ");
-        userCard.setSuit(hand[6].getSuit());
+        userCard.setValue(scan.nextInt());
+        System.out.println("Enter a Suit : ");
+        userCard.setSuit(scan.next());
         
         for(int i = 0; i < hand.length;i++){
             if(hand[i].getValue() == userCard.getValue())
-                if(hand[i].getSuit() == userCard.getSuit())
+                if(hand[i].getSuit().equalsIgnoreCase(userCard.getSuit()))
                     printInfo();
         }
         // If the guess is successful, invoke the printInfo() method below.
