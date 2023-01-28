@@ -21,10 +21,10 @@ public class CardTrick {
             Card card = new Card();
             //Random generation 0-12 (13 values)
             card.setValue((int)(Math.random()*13));
-            System.out.println(card.getValue());
+            
             //Random generation 0-3 (4 values)
             card.setSuit(Card.SUITS[((int)(Math.random()*3)+1)]);
-            System.out.println(card.getSuit());
+           
             //assign object to index i in hand array
             hand[i] = card;
             
