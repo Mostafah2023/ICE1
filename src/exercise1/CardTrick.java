@@ -1,4 +1,5 @@
 package exercise1;
+import java.util.*;
 
 /**
  * A class that fills a hand of 7 cards with random Card Objects and then asks the user to pick a card.
@@ -7,20 +8,23 @@ package exercise1;
  *
  * @author dancye
  * @author Paul Bonenfant Jan 25, 2022 
+ * @author Mostafa Hussain | Modified on 1/27/2023
  */
 public class CardTrick {
     
     public static void main(String[] args) {
         
         Card[] hand = new Card[7];
+        Scanner scan = new Scanner(System.in);
 
         for (int i = 0; i < hand.length; i++) {
             Card card = new Card();
-            //card.setValue(insert call to random number generator here)
-            // 
-            //card.setSuit(Card.SUITS[insert call to random number between 0-3 here])
-            // Hint: You can use Random -> random.nextInt(n) to get a random number between 0 and n-1 (inclusive)
-            //       Don't worry about duplicates at this point
+            //Random generation 0-12 (13 values)
+            card.setValue((int)(Math.random()*13));
+            //Random generation 0-3 (4 values)
+            card.setSuit(Card.SUITS[((int)(Math.random()*3)+1)]);
+            //assign object to index i in hand array
+            hand[i] = card;
         }
 
         // insert code to ask the user for Card value and suit, create their card
@@ -30,7 +34,17 @@ public class CardTrick {
         //       1 for Hearts, 2 for Diamonds, etc. (remember arrays are 0-based though)
         // 
         // Then loop through the cards in the array to see if there's a match.
+        Card userCard = new Card();
+        System.out.println("Enter a card value (1-13): ");
+        userCard.setValue(hand[6].getValue());
+        //System.out.println("Enter a Suit: ");
+        userCard.setSuit(hand[6].getSuit());
         
+        for(int i = 0; i < hand.length;i++){
+            if(hand[i].getValue() == userCard.getValue())
+                if(hand[i].getSuit() == userCard.getSuit())
+                    printInfo();
+        }
         // If the guess is successful, invoke the printInfo() method below.
         
     }
@@ -39,6 +53,7 @@ public class CardTrick {
      * A simple method to print out personal information. Follow the instructions to 
      * replace this information with your own.
      * @author Paul Bonenfant Jan 2022
+     * @author Mostafa Hussain
      */
     private static void printInfo() {
     

@@ -9,6 +9,7 @@ package exercise1;
  * add your name as a modifier.
  * @author dancye
  * @author Paul Bonenfant May 2020
+ * @author Mostafa Hussain | Modified on 1/27/2023 
  */
 public class Card {
 
